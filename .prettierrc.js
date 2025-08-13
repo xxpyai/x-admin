@@ -2,8 +2,13 @@
 
 /** @type {import("prettier").Config} */
 export default {
-  bracketSpacing: true,
-  singleQuote: false,
-  arrowParens: "avoid",
-  trailingComma: "none"
-};
+    semi: false,
+    singleQuote: true,
+    bracketSpacing: true,
+    arrowParens: 'avoid',
+    trailingComma: 'none',
+    printWidth: 200,
+    jsxSingleQuote: true,
+    bracketSameLine: true,
+    vueIndentScriptAndStyle: true
+}

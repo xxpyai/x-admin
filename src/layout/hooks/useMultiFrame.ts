@@ -1,25 +1,25 @@
-const MAP = new Map();
+const MAP = new Map()
 
 export const useMultiFrame = () => {
-  function setMap(path, Comp) {
-    MAP.set(path, Comp);
-  }
-
-  function getMap(path?) {
-    if (path) {
-      return MAP.get(path);
+    function setMap(path, Comp) {
+        MAP.set(path, Comp)
     }
-    return [...MAP.entries()];
-  }
 
-  function delMap(path) {
-    MAP.delete(path);
-  }
+    function getMap(path?) {
+        if (path) {
+            return MAP.get(path)
+        }
+        return [...MAP.entries()]
+    }
 
-  return {
-    setMap,
-    getMap,
-    delMap,
-    MAP
-  };
-};
+    function delMap(path) {
+        MAP.delete(path)
+    }
+
+    return {
+        setMap,
+        getMap,
+        delMap,
+        MAP
+    }
+}
