@@ -8,41 +8,41 @@ export const extractPathList = (tree: any[]): any => {
         console.warn('tree must be an array')
         return []
     }
-    if (!tree || tree.length === 0) return []
+
+    if (!tree?.length) return []
+
     const expandedPaths: Array<number | string> = []
     for (const node of tree) {
-        const hasChildren = node.children && node.children.length > 0
-        if (hasChildren) {
-            extractPathList(node.children)
-        }
+        node?.children?.length && extractPathList(node.children)
         expandedPaths.push(node.uniqueId)
     }
+
     return expandedPaths
 }
 
 /**
- * @description 如果父级下children的length为1，删除children并自动组建唯一uniqueId
+ * @description 如果父级下 children 的 length 为 1，删除 children 并自动组建唯一 uniqueId
  * @param tree 树
  * @param pathList 每一项的id组成的数组
- * @returns 组件唯一uniqueId后的树
+ * @returns 组件唯一 uniqueId 后的树
  */
 export const deleteChildren = (tree: any[], pathList = []): any => {
     if (!Array.isArray(tree)) {
         console.warn('menuTree must be an array')
         return []
     }
-    if (!tree || tree.length === 0) return []
+
+    if (!tree?.length) return []
+
     for (const [key, node] of tree.entries()) {
         if (node.children && node.children.length === 1) delete node.children
         node.id = key
         node.parentId = pathList.length ? pathList[pathList.length - 1] : null
         node.pathList = [...pathList, node.id]
         node.uniqueId = node.pathList.length > 1 ? node.pathList.join('-') : node.pathList[0]
-        const hasChildren = node.children && node.children.length > 0
-        if (hasChildren) {
-            deleteChildren(node.children, node.pathList)
-        }
+        node?.children?.length && deleteChildren(node.children, node.pathList)
     }
+
     return tree
 }
 
@@ -57,16 +57,16 @@ export const buildHierarchyTree = (tree: any[], pathList = []): any => {
         console.warn('tree must be an array')
         return []
     }
-    if (!tree || tree.length === 0) return []
+
+    if (!tree?.length) return []
+
     for (const [key, node] of tree.entries()) {
         node.id = key
-        node.parentId = pathList.length ? pathList[pathList.length - 1] : null
         node.pathList = [...pathList, node.id]
-        const hasChildren = node.children && node.children.length > 0
-        if (hasChildren) {
-            buildHierarchyTree(node.children, node.pathList)
-        }
+        node.parentId = pathList.length ? pathList[pathList.length - 1] : null
+        node?.children?.length && buildHierarchyTree(node.children, node.pathList)
     }
+
     return tree
 }
 
@@ -81,13 +81,18 @@ export const getNodeByUniqueId = (tree: any[], uniqueId: number | string): any =
         console.warn('menuTree must be an array')
         return []
     }
-    if (!tree || tree.length === 0) return []
+
+    if (!tree?.length) return []
+
     const item = tree.find(node => node.uniqueId === uniqueId)
+
     if (item) return item
+
     const childrenList = tree
         .filter(node => node.children)
         .map(i => i.children)
         .flat(1) as unknown
+
     return getNodeByUniqueId(childrenList as any[], uniqueId)
 }
 
@@ -103,14 +108,17 @@ export const appendFieldByUniqueId = (tree: any[], uniqueId: number | string, fi
         console.warn('menuTree must be an array')
         return []
     }
-    if (!tree || tree.length === 0) return []
+
+    if (!tree?.length) return []
+
     for (const node of tree) {
-        const hasChildren = node.children && node.children.length > 0
-        if (node.uniqueId === uniqueId && Object.prototype.toString.call(fields) === '[object Object]') Object.assign(node, fields)
-        if (hasChildren) {
-            appendFieldByUniqueId(node.children, uniqueId, fields)
+        if (node.uniqueId === uniqueId && Object.prototype.toString.call(fields) === '[object Object]') {
+            Object.assign(node, fields)
         }
+
+        node?.children?.length && appendFieldByUniqueId(node.children, uniqueId, fields)
     }
+
     return tree
 }
 
@@ -127,15 +135,16 @@ export const handleTree = (data: any[], id?: string, parentId?: string, children
         console.warn('data must be an array')
         return []
     }
+
     const config = {
         id: id || 'id',
         parentId: parentId || 'parentId',
         childrenList: children || 'children'
     }
 
-    const childrenListMap: any = {}
-    const nodeIds: any = {}
     const tree = []
+    const nodeIds: any = {}
+    const childrenListMap: any = {}
 
     for (const d of data) {
         const parentId = d[config.parentId]
@@ -167,5 +176,6 @@ export const handleTree = (data: any[], id?: string, parentId?: string, children
             }
         }
     }
+
     return tree
 }

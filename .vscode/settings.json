@@ -1,43 +1,33 @@
 {
-  "workbench.startupEditor": "newUntitledFile",
+    "workbench.startupEditor": "newUntitledFile",
 
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.formatOnSave": true,
-  "editor.guides.bracketPairs": "active",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.guides.bracketPairs": "active",
 
-  "files.autoSave": "afterDelay",
+    "git.confirmSync": false,
 
-  "git.confirmSync": false,
+    "css.lint.propertyIgnoredDueToDisplay": "ignore",
 
-  "css.lint.propertyIgnoredDueToDisplay": "ignore",
+    "editor.suggestSelection": "first",
+    "editor.acceptSuggestionOnCommitCharacter": false,
+    // 智能提示: 控制在不同上下文中是否自动显示建议
+    "editor.quickSuggestions": {
+        "strings": true, // 在写字符串时是否显示建议
+        "other": true, // 在写代码时是否显示建议
+        "comments": true // 在写注释时是否显示建议
+    },
 
-  "editor.suggestSelection": "first",
-  "editor.acceptSuggestionOnCommitCharacter": false,
-  // 智能提示: 控制在不同上下文中是否自动显示建议
-  "editor.quickSuggestions": {
-    "strings": true, // 在写字符串时是否显示建议
-    "other": true, // 在写代码时是否显示建议
-    "comments": true // 在写注释时是否显示建议
-  },
+    "editor.snippetSuggestions": "top",
 
-  "editor.snippetSuggestions": "top",
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "explicit"
+    },
 
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit"
-  },
+    // iconify 插件支持： 排除 "el" 相关的图标集（Element UI 相关）
+    "iconify.excludes": ["el"],
 
-  // iconify 插件支持： 排除 "el" 相关的图标集（Element UI 相关）
-  "iconify.excludes": ["el"],
-
-  // vscode-custom-code-color 插件支持：自定义代码颜色
-  "vscodeCustomCodeColor.highlightValue": [
-    "v-loading",
-    "v-auth",
-    "v-copy",
-    "v-longpress",
-    "v-optimize",
-    "v-perms",
-    "v-ripple"
-  ],
-  "vscodeCustomCodeColor.highlightValueColor": "#b392f0"
+    // vscode-custom-code-color 插件支持：自定义代码颜色
+    "vscodeCustomCodeColor.highlightValue": ["v-loading", "v-auth", "v-copy", "v-longpress", "v-optimize", "v-perms", "v-ripple"],
+    "vscodeCustomCodeColor.highlightValueColor": "#b392f0"
 }

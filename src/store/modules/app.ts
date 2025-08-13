@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { type appType, store, getConfig, storageLocal, deviceDetection, responsiveStorageNameSpace } from '../utils'
+import { type appType, deviceDetection, getConfig, responsiveStorageNameSpace, storageLocal, store } from '../utils'
 
 export const useAppStore = defineStore('pure-app', {
     state: (): appType => ({
@@ -66,5 +66,6 @@ export const useAppStore = defineStore('pure-app', {
 })
 
 export function useAppStoreHook() {
+    // 解决组件外部调用问题：在组件外部（如 utils、api 模块、路由守卫等）使用 store 时，直接调用 useAppStore() 可能会出现问题，因为没有正确的 Vue 实例上下文
     return useAppStore(store)
 }

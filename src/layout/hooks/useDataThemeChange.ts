@@ -1,14 +1,14 @@
-import { ref } from 'vue'
 import { getConfig } from '@/config'
-import { useLayout } from './useLayout'
-import { removeToken } from '@/utils/auth'
 import { routerArrays } from '@/layout/types'
-import { router, resetRouter } from '@/router'
-import type { themeColorsType } from '../types'
+import { resetRouter, router } from '@/router'
 import { useAppStoreHook } from '@/store/modules/app'
 import { useEpThemeStoreHook } from '@/store/modules/epTheme'
 import { useMultiTagsStoreHook } from '@/store/modules/multiTags'
-import { darken, lighten, useGlobal, storageLocal } from '@pureadmin/utils'
+import { removeToken } from '@/utils/auth'
+import { darken, lighten, storageLocal, useGlobal } from '@pureadmin/utils'
+import { ref } from 'vue'
+import type { themeColorsType } from '../types'
+import { useLayout } from './useLayout'
 
 export function useDataThemeChange() {
     const { layoutTheme, layout } = useLayout()

@@ -1,14 +1,14 @@
-import { type RouterHistory, type RouteRecordRaw, type RouteComponent, createWebHistory, createWebHashHistory } from 'vue-router'
-import { router } from './index'
-import { isProxy, toRaw } from 'vue'
-import { useTimeoutFn } from '@vueuse/core'
-import { isString, cloneDeep, isAllEmpty, intersection, storageLocal, isIncludeAllChildren } from '@pureadmin/utils'
 import { getConfig } from '@/config'
-import { buildHierarchyTree } from '@/utils/tree'
-import { userKey, type DataInfo } from '@/utils/auth'
 import { type menuType, routerArrays } from '@/layout/types'
 import { useMultiTagsStoreHook } from '@/store/modules/multiTags'
 import { usePermissionStoreHook } from '@/store/modules/permission'
+import { type DataInfo, userKey } from '@/utils/auth'
+import { buildHierarchyTree } from '@/utils/tree'
+import { cloneDeep, intersection, isAllEmpty, isIncludeAllChildren, isString, storageLocal } from '@pureadmin/utils'
+import { useTimeoutFn } from '@vueuse/core'
+import { isProxy, toRaw } from 'vue'
+import { type RouteComponent, type RouteRecordRaw, type RouterHistory, createWebHashHistory, createWebHistory } from 'vue-router'
+import { router } from './index'
 const IFrame = () => import('@/layout/frame.vue')
 // https://cn.vitejs.dev/guide/features.html#glob-import
 const modulesRoutes = import.meta.glob('/src/views/**/*.{vue,tsx}')
@@ -216,34 +216,17 @@ function formatTwoStageRoutes(routesList: RouteRecordRaw[]) {
 function handleAliveRoute({ name }: ToRouteType, mode?: string) {
     switch (mode) {
         case 'add':
-            usePermissionStoreHook().cacheOperate({
-                mode: 'add',
-                name
-            })
+            usePermissionStoreHook().cacheOperate({ mode: 'add', name })
             break
         case 'delete':
-            usePermissionStoreHook().cacheOperate({
-                mode: 'delete',
-                name
-            })
+            usePermissionStoreHook().cacheOperate({ mode: 'delete', name })
             break
         case 'refresh':
-            usePermissionStoreHook().cacheOperate({
-                mode: 'refresh',
-                name
-            })
+            usePermissionStoreHook().cacheOperate({ mode: 'refresh', name })
             break
         default:
-            usePermissionStoreHook().cacheOperate({
-                mode: 'delete',
-                name
-            })
-            useTimeoutFn(() => {
-                usePermissionStoreHook().cacheOperate({
-                    mode: 'add',
-                    name
-                })
-            }, 100)
+            usePermissionStoreHook().cacheOperate({ mode: 'delete', name })
+            useTimeoutFn(() => usePermissionStoreHook().cacheOperate({ mode: 'add', name }), 100)
     }
 }
 
@@ -252,8 +235,9 @@ function addAsyncRoutes(arrRoutes: Array<RouteRecordRaw>) {
     if (!arrRoutes || !arrRoutes.length) return
     const modulesRoutesKeys = Object.keys(modulesRoutes)
     arrRoutes.forEach((v: RouteRecordRaw) => {
-        // 将backstage属性加入meta，标识此路由为后端返回路由
+        // 将 backstage 属性加入 meta，标识此路由为后端返回路由
         v.meta.backstage = true
+
         // 父级的redirect属性取值：如果子级存在且父级的redirect属性不存在，默认取第一个子级的path；如果子级存在且父级的redirect属性存在，取存在的redirect属性，会覆盖默认值
         if (v?.children && v.children.length && !v.redirect) v.redirect = v.children[0].path
         // 父级的name属性取值：如果子级存在且父级的name属性不存在，默认取第一个子级的name；如果子级存在且父级的name属性存在，取存在的name属性，会覆盖默认值（注意：测试中发现父级的name不能和子级name重复，如果重复会造成重定向无效（跳转404），所以这里给父级的name起名的时候后面会自动加上`Parent`，避免重复）
@@ -330,20 +314,20 @@ function getTopMenu(tag = false): menuType {
 }
 
 export {
-    hasAuth,
-    getAuths,
-    ascending,
-    filterTree,
-    initRouter,
-    getTopMenu,
-    addPathMatch,
-    isOneOfArray,
-    getHistoryMode,
     addAsyncRoutes,
-    getParentPaths,
+    addPathMatch,
+    ascending,
+    filterNoPermissionTree,
+    filterTree,
     findRouteByPath,
-    handleAliveRoute,
-    formatTwoStageRoutes,
     formatFlatteningRoutes,
-    filterNoPermissionTree
+    formatTwoStageRoutes,
+    getAuths,
+    getHistoryMode,
+    getParentPaths,
+    getTopMenu,
+    handleAliveRoute,
+    hasAuth,
+    initRouter,
+    isOneOfArray
 }
