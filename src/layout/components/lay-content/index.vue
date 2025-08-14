@@ -1,11 +1,11 @@
 <script setup lang="ts">
-    import LayFrame from '../lay-frame/index.vue'
-    import LayFooter from '../lay-footer/index.vue'
-    import { useTags } from '@/layout/hooks/useTag'
-    import { useGlobal, isNumber } from '@pureadmin/utils'
     import BackTopIcon from '@/assets/svg/back_top.svg?component'
-    import { h, computed, Transition, defineComponent } from 'vue'
+    import { useTags } from '@/layout/hooks/useTag'
     import { usePermissionStoreHook } from '@/store/modules/permission'
+    import { isNumber, useGlobal } from '@pureadmin/utils'
+    import { computed, defineComponent, h, Transition } from 'vue'
+    import LayFooter from '../lay-footer/index.vue'
+    import LayFrame from '../lay-frame/index.vue'
 
     const props = defineProps({
         fixedHeader: Boolean
@@ -47,9 +47,9 @@
     const getSectionStyle = computed(() => {
         return [
             hideTabs.value && layout ? 'padding-top: 48px;' : '',
-            !hideTabs.value && layout ? (showModel.value == 'chrome' ? 'padding-top: 85px;' : 'padding-top: 81px;') : '',
+            !hideTabs.value && layout ? (showModel.value == 'chrome' ? 'padding-top: 85px;' : 'padding-top: 80px;') : '',
             hideTabs.value && !layout.value ? 'padding-top: 48px;' : '',
-            !hideTabs.value && !layout.value ? (showModel.value == 'chrome' ? 'padding-top: 85px;' : 'padding-top: 81px;') : '',
+            !hideTabs.value && !layout.value ? (showModel.value == 'chrome' ? 'padding-top: 85px;' : 'padding-top: 80px;') : '',
             props.fixedHeader ? '' : `padding-top: 0;${hideTabs.value ? 'min-height: calc(100vh - 48px);' : 'min-height: calc(100vh - 86px);'}`
         ]
     })
@@ -150,6 +150,6 @@
     }
 
     .main-content {
-        margin: 24px;
+        /* padding: 24px; */
     }
 </style>

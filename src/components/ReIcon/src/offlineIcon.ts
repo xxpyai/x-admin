@@ -14,6 +14,7 @@ const icons = [
     // Element Plus Icon: https://github.com/element-plus/element-plus-icons
     ['ep/home-filled', EpHomeFilled],
     ['ep/picture-filled', EpPictureFilled],
+
     // Remix Icon: https://github.com/Remix-Design/RemixIcon
     ['ri/search-line', RiSearchLine],
     ['ri/information-line', RiInformationLine]

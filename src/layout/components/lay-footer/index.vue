@@ -17,7 +17,7 @@
         align-items: center;
         justify-content: center;
         width: 100%;
-        padding: 0 0 8px;
+        height: 26px;
         font-size: 14px;
     }
 </style>
