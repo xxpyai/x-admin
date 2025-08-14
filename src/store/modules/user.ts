@@ -1,4 +1,4 @@
-import { type RefreshTokenResult, type UserResult, getLogin, refreshTokenApi } from '@/api/user'
+import { type UserResult, getLogin } from '@/api/user'
 import { type DataInfo, removeToken, setToken, userKey } from '@/utils/auth'
 import { defineStore } from 'pinia'
 import { type userType, resetRouter, router, routerArrays, storageLocal, store } from '../utils'
@@ -72,21 +72,6 @@ export const useUserStore = defineStore('pure-user', {
             useMultiTagsStoreHook().handleTags('equal', [...routerArrays])
             resetRouter()
             router.push('/login')
-        },
-        /** 刷新`token` */
-        async handRefreshToken(data) {
-            return new Promise<RefreshTokenResult>((resolve, reject) => {
-                refreshTokenApi(data)
-                    .then(data => {
-                        if (data) {
-                            setToken(data.data)
-                            resolve(data)
-                        }
-                    })
-                    .catch(error => {
-                        reject(error)
-                    })
-            })
         }
     }
 })

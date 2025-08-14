@@ -1,7 +1,7 @@
-import type { Method, AxiosError, AxiosResponse, AxiosRequestConfig } from 'axios'
+import type { AxiosError, AxiosRequestConfig, AxiosResponse, Method } from 'axios'
 
 export type resultType = {
-    accessToken?: string
+    token?: string
 }
 
 export type RequestMethods = Extract<Method, 'get' | 'post' | 'put' | 'delete' | 'patch' | 'option' | 'head'>
@@ -15,6 +15,8 @@ export interface PureHttpResponse extends AxiosResponse {
 }
 
 export interface PureHttpRequestConfig extends AxiosRequestConfig {
+    loading?: boolean
+    autores?: boolean
     beforeRequestCallback?: (request: PureHttpRequestConfig) => void
     beforeResponseCallback?: (response: PureHttpResponse) => void
 }

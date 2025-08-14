@@ -8,6 +8,8 @@ export default defineFakeRoute([
         response: ({ body }) => {
             if (body.username === 'admin') {
                 return {
+                    code: 200,
+                    msg: '',
                     success: true,
                     data: {
                         avatar: 'https://avatars.githubusercontent.com/u/44761321',
@@ -17,13 +19,15 @@ export default defineFakeRoute([
                         roles: ['admin'],
                         // 按钮级别权限
                         permissions: ['*:*:*'],
-                        accessToken: 'eyJhbGciOiJIUzUxMiJ9.admin',
+                        token: 'eyJhbGciOiJIUzUxMiJ9.admin',
                         refreshToken: 'eyJhbGciOiJIUzUxMiJ9.adminRefresh',
                         expires: '2030/10/30 00:00:00'
                     }
                 }
             } else {
                 return {
+                    code: 200,
+                    msg: '',
                     success: true,
                     data: {
                         avatar: 'https://avatars.githubusercontent.com/u/52823142',
@@ -31,7 +35,7 @@ export default defineFakeRoute([
                         nickname: '小林',
                         roles: ['common'],
                         permissions: ['permission:btn:add', 'permission:btn:edit'],
-                        accessToken: 'eyJhbGciOiJIUzUxMiJ9.common',
+                        token: 'eyJhbGciOiJIUzUxMiJ9.common',
                         refreshToken: 'eyJhbGciOiJIUzUxMiJ9.commonRefresh',
                         expires: '2030/10/30 00:00:00'
                     }

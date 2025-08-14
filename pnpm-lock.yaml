@@ -10,7 +10,7 @@ importers:
     dependencies:
       '@pureadmin/table':
         specifier: ^3.3.0
-        version: 3.3.0(element-plus@2.10.5(vue@3.5.18(typescript@5.9.2)))(typescript@5.9.2)
+        version: 3.3.0(element-plus@2.10.7(vue@3.5.18(typescript@5.9.2)))(typescript@5.9.2)
       '@pureadmin/utils':
         specifier: ^2.6.2
         version: 2.6.2(echarts@5.6.0)(vue@3.5.18(typescript@5.9.2))
@@ -33,8 +33,8 @@ importers:
         specifier: ^5.6.0
         version: 5.6.0
       element-plus:
-        specifier: ^2.10.4
-        version: 2.10.5(vue@3.5.18(typescript@5.9.2))
+        specifier: ^2.10.7
+        version: 2.10.7(vue@3.5.18(typescript@5.9.2))
       js-cookie:
         specifier: ^3.0.5
         version: 3.0.5
@@ -1886,8 +1886,8 @@ packages:
   electron-to-chromium@1.5.198:
     resolution: {integrity: sha512-G5COfnp3w+ydVu80yprgWSfmfQaYRh9DOxfhAxstLyetKaLyl55QrNjx8C38Pc/C+RaDmb1M0Lk8wPEMQ+bGgQ==}
 
-  element-plus@2.10.5:
-    resolution: {integrity: sha512-O9wTDu3Tm51ACVByWrThtBhH4Ygefg1HGY5pyAaxnoIrj8uMN0GtZ4IREwR3Yw/6sM2HyxjrsGI/D46iUVP97A==}
+  element-plus@2.10.7:
+    resolution: {integrity: sha512-bL4yhepL8/0NEQA5+N2Q6ZVKLipIDkiQjK2mqtSmGh6CxJk1yaBMdG5HXfYkbk1htNcT3ULk9g23lzT323JGcA==}
     peerDependencies:
       vue: ^3.2.0
 
@@ -1959,7 +1959,7 @@ packages:
     engines: {node: '>=6'}
 
   escape-html@1.0.3:
-    resolution: {integrity: sha512-NiSupZ4OeuGwr68lGIeym/ksIZMJodUGOSCZ/FSnTxcrekbvqrgdUxlJOMpijaKZVjAJrWrGs/6Jy8OMuyj9ow==}
+    resolution: {integrity: sha1-Aljq5NPQwJdN4cFpGI7wBR0dGYg=}
 
   escape-string-regexp@4.0.0:
     resolution: {integrity: sha512-TtpcNJ3XAzx3Gq8sWRzJaVajRs0uVxA2YAkdb1jm2YkPz4G6egUFAyA3n5vtEIZefPk5Wa4UXbKuS5fKkJWdgA==}
@@ -2559,7 +2559,7 @@ packages:
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
 
   lodash-es@4.17.21:
-    resolution: {integrity: sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==}
+    resolution: {integrity: sha1-Q+YmxG5lkbd1C+srUBFzkMYJ4+4=}
 
   lodash-unified@1.0.3:
     resolution: {integrity: sha512-WK9qSozxXOD7ZJQlpSqOT+om2ZfcT4yO+03FuzAHD0wF6S0l0090LRPDx3vhTTLZ8cFKpBn+IOcVXK6qOcIlfQ==}
@@ -2602,7 +2602,7 @@ packages:
     resolution: {integrity: sha512-sReKOYJIJf74dhJONhU4e0/shzi1trVbSWDOhKYE5XV2O+H7Sb2Dihwuc7xWxVl+DgFPyTqIN3zMfT9cq5iWDg==}
 
   lodash@4.17.21:
-    resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
+    resolution: {integrity: sha1-Z5WRxWTDv/quhFTPCz3zcMPWkRw=}
 
   log-update@6.1.0:
     resolution: {integrity: sha512-9ie8ItPR6tjY5uYJh8K/Zrv/RMZ5VOlOWvtZdEHYSTFKZfIBPQa9tOAEeAWhd+AnIneLJ22w5fjOYtoutpWq5w==}
@@ -2641,7 +2641,7 @@ packages:
     resolution: {integrity: sha512-786vq1+4079JSeu2XdcDjrhi/Ry7BWtjDl9WtGPWLiIHb2T66GvIVflZTBoSNZ5JqTtJGYEVMuFA/lbQlMOyDQ==}
 
   memoize-one@6.0.0:
-    resolution: {integrity: sha512-rkpe71W0N0c0Xz6QD0eJETuWAJGnJ9afsl1srmwPrI+yBCkge5EycXXbYRyvL29zZVUWQCY7InPRCv3GDXuZNw==}
+    resolution: {integrity: sha1-slkbhx7YKUiu5HJ9xqvO7qyMEEU=}
 
   meow@12.1.1:
     resolution: {integrity: sha512-BhXM0Au22RwUneMPwSCnyhTOizdWoIEPU9sp0Aqa1PnDMR5Wv2FGXYDjuzJEIX+Eo2Rb8xuYe5jrnm5QowQFkw==}
@@ -4494,9 +4494,9 @@ snapshots:
 
   '@popperjs/core@2.11.8': {}
 
-  '@pureadmin/table@3.3.0(element-plus@2.10.5(vue@3.5.18(typescript@5.9.2)))(typescript@5.9.2)':
+  '@pureadmin/table@3.3.0(element-plus@2.10.7(vue@3.5.18(typescript@5.9.2)))(typescript@5.9.2)':
     dependencies:
-      element-plus: 2.10.5(vue@3.5.18(typescript@5.9.2))
+      element-plus: 2.10.7(vue@3.5.18(typescript@5.9.2))
       vue: 3.5.18(typescript@5.9.2)
     transitivePeerDependencies:
       - typescript
@@ -5426,7 +5426,7 @@ snapshots:
 
   electron-to-chromium@1.5.198: {}
 
-  element-plus@2.10.5(vue@3.5.18(typescript@5.9.2)):
+  element-plus@2.10.7(vue@3.5.18(typescript@5.9.2)):
     dependencies:
       '@ctrl/tinycolor': 3.6.1
       '@element-plus/icons-vue': 2.3.2(vue@3.5.18(typescript@5.9.2))

@@ -41,6 +41,8 @@ export const constantMenus: Array<RouteComponent> = ascRoutes.concat(...remainin
 // 不参与菜单的路由
 export const remainingPaths = Object.keys(remainingRouter).map(v => remainingRouter[v].path)
 
+console.log('--------------------路由加载完成------------------', constantRoutes)
+
 // 创建路由实例
 export const router: Router = createRouter({
     history: getHistoryMode(import.meta.env.VITE_ROUTER_HISTORY),

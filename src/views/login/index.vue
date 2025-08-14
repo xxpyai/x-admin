@@ -1,22 +1,22 @@
 <script setup lang="ts">
-    import Motion from './utils/motion'
-    import { useRouter } from 'vue-router'
-    import { message } from '@/utils/message'
-    import { loginRules } from './utils/rule'
-    import { ref, reactive, toRaw } from 'vue'
-    import { debounce } from '@pureadmin/utils'
-    import { useNav } from '@/layout/hooks/useNav'
-    import { useEventListener } from '@vueuse/core'
-    import type { FormInstance } from 'element-plus'
-    import { useLayout } from '@/layout/hooks/useLayout'
-    import { useUserStoreHook } from '@/store/modules/user'
-    import { initRouter, getTopMenu } from '@/router/utils'
-    import { bg, avatar, illustration } from './utils/static'
     import { useRenderIcon } from '@/components/ReIcon/src/hooks'
     import { useDataThemeChange } from '@/layout/hooks/useDataThemeChange'
+    import { useLayout } from '@/layout/hooks/useLayout'
+    import { useNav } from '@/layout/hooks/useNav'
+    import { getTopMenu, initRouter } from '@/router/utils'
+    import { useUserStoreHook } from '@/store/modules/user'
+    import { message } from '@/utils/message'
+    import { debounce } from '@pureadmin/utils'
+    import { useEventListener } from '@vueuse/core'
+    import type { FormInstance } from 'element-plus'
+    import { reactive, ref, toRaw } from 'vue'
+    import { useRouter } from 'vue-router'
+    import Motion from './utils/motion'
+    import { loginRules } from './utils/rule'
+    import { avatar, bg, illustration } from './utils/static'
 
-    import dayIcon from '@/assets/svg/day.svg?component'
     import darkIcon from '@/assets/svg/dark.svg?component'
+    import dayIcon from '@/assets/svg/day.svg?component'
     import Lock from '~icons/ri/lock-fill'
     import User from '~icons/ri/user-3-fill'
 
@@ -52,6 +52,7 @@
                         password: ruleForm.password
                     })
                     .then(res => {
+                        console.log(res)
                         if (res.success) {
                             // 获取后端路由
                             return initRouter().then(() => {
@@ -66,6 +67,9 @@
                         } else {
                             message('登录失败', { type: 'error' })
                         }
+                    })
+                    .catch(err => {
+                        message(err.msg, { type: 'error' })
                     })
                     .finally(() => (loading.value = false))
             }

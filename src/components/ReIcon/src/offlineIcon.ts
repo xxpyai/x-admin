@@ -1,17 +1,19 @@
 // 这里存放本地图标，在 src/layout/index.vue 文件中加载，避免在首启动加载
-import { getSvgInfo } from '@pureadmin/utils'
 import { addIcon } from '@iconify/vue/dist/offline'
+import { getSvgInfo } from '@pureadmin/utils'
 
 // https://icon-sets.iconify.design/ep/?keyword=ep
 import EpHomeFilled from '~icons/ep/home-filled?raw'
+import EpPictureFilled from '~icons/ep/picture-filled?raw'
 
 // https://icon-sets.iconify.design/ri/?keyword=ri
-import RiSearchLine from '~icons/ri/search-line?raw'
 import RiInformationLine from '~icons/ri/information-line?raw'
+import RiSearchLine from '~icons/ri/search-line?raw'
 
 const icons = [
     // Element Plus Icon: https://github.com/element-plus/element-plus-icons
     ['ep/home-filled', EpHomeFilled],
+    ['ep/picture-filled', EpPictureFilled],
     // Remix Icon: https://github.com/Remix-Design/RemixIcon
     ['ri/search-line', RiSearchLine],
     ['ri/information-line', RiInformationLine]
